@@ -11,38 +11,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
     <title>📣 Admin</title>
   </head>
   <body>
     <header class="navbar">
       <div class="logo">
-        <img src="" alt="" id="logo_img" />
         <h1>Announcify</h1>
-      </div>
-      <div class="menu-items">
-        <a href="/login">Login</a>
-        <a href="/about">About Us</a>
+        <img src="../public/logo.svg" alt="" id="logo_img" />
       </div>
     </header>
     <main>
-      <header class="navbar">
-        <div class="logo">
-          <img src="" alt="" id="logo_img" />
-          <h1>Announcify</h1>
-        </div>
-        <div class="user">
-          <h2 class="user_name"></h2>
-        </div>
-      </header>
       <div class="container">
-        <h3>Add students</h3>
-        <p>
-          Add student credentials. Students will be sent their usernames along
-          with their passwords on their emails. It is advisable to enter school
-          email IDs
-        </p>
+        <h3>Students Registration</h3>
+        <h3 id="className"></h3>
         <form class="student-form">
-          <h3 id="className"></h3>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="login-input" />
@@ -55,27 +39,25 @@
             <label for="email">Email</label>
             <input type="text" id="email" class="login-input" />
           </div>
-          <div class="form-group">
-            <label for="class"> Class </label>
-            <select id="class" class="login-input"></select>
-          </div>
-          <button id="submit_btn">Submit</button>
         </form>
+        <button id="submit_btn">Submit</button>
         <button id="sendMail">Send emails</button>
         <div id="student-container"></div>
         <div id="createClass">
           <h3>Want to create a class ?</h3>
-          <input
-            type="text"
-            id="grade"
-            placeholder="Enter the grade. eg : 10"
-          />
-          <input
-            type="text"
-            id="section"
-            placeholder="Enter the section. eg : I"
-          />
-          <i class="fa-solid fa-circle-plus" id="add_btn"></i>
+          <div class="input-container">
+            <input
+              type="text"
+              id="grade"
+              placeholder="Enter the grade. eg : 10"
+            />
+            <input
+              type="text"
+              id="section"
+              placeholder="Enter the section. eg : I"
+            />
+            <i class="fa-solid fa-circle-plus" id="add_btn"></i>
+          </div>
         </div>
       </div>
     </main>

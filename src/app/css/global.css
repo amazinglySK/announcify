@@ -45,8 +45,7 @@
 
 main {
   width: 80%;
-  margin: auto;
-  margin-top: 2rem;
+  margin: 2rem auto;
   font-family: var(--primary-text-font);
 }
 

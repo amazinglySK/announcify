@@ -1,0 +1,39 @@
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: normal !important;
+}
+
+.ann-card {
+  background-color: var(--fill-color);
+  padding: 0.5em 1em;
+  border: 5px var(--accent-color) solid;
+  border-radius: 10px;
+}
+
+.ann-card > h4 {
+  /* font-weight: normal !important; */
+  font-size: 1.5rem;
+}
+
+.ann-card > p {
+  /* font-weight: normal !important; */
+  font-size: 1.25rem;
+}
+
+.recentsContainer {
+  margin-top: 2em;
+}
+
+.button-type {
+  font-size: 1.5rem;
+  color: var(--light-text-color);
+  background-color: var(--accent-color);
+  padding: 0.5rem;
+  border-radius: 8px;
+}

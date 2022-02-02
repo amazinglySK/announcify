@@ -11,28 +11,31 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/newAnn.css" />
     <title>📣 New announcment</title>
   </head>
   <body>
     <header class="navbar">
       <div class="logo">
-        <img src="" alt="" id="logo_img" />
         <h1>Announcify</h1>
-      </div>
-      <div class="user">
-        <h2 class="user_name"></h2>
-        <img src="" alt="" />
+        <img src="../public/logo.svg" alt="" id="logo_img" />
       </div>
     </header>
     <main>
       <form id="new-announcement-form">
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="text" placeholder="Title" id="title" />
+          <input type="text" placeholder="Title" id="title" required />
         </div>
         <div class="form-group">
           <label for="description">Description</label>
-          <input type="text" placeholder="Description" id="description" />
+          <input
+            type="text"
+            placeholder="Description"
+            id="description"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="content">What's the announcement?</label>
@@ -40,12 +43,13 @@
             name="conent"
             id="content"
             placeholder="Type something here"
+            required
           ></textarea>
         </div>
         <div class="form-group">
           <label for="link"> Any links? </label>
           <div class="link-add-container">
-            <input type="text" placeholder="links" id="link" />
+            <input type="text" placeholder="links" id="link" required />
             <i class="fa-solid fa-circle-plus" id="add_btn"></i>
           </div>
           <div class="link_display"></div>
