@@ -1,0 +1,17 @@
+.container {
+  align-items: center;
+  gap: 2rem;
+  display: flex;
+}
+
+.banner-text {
+  font-weight: 400 !important;
+  font-size: 3rem;
+}
+
+.container-right {
+  width: 50%;
+}
+.banner-img {
+  width: 50%;
+}

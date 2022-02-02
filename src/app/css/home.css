@@ -1,0 +1,16 @@
+.container {
+  align-items: center;
+  display: flex;
+}
+
+.banner-text {
+  font-weight: 400 !important;
+  font-size: 3.5rem;
+}
+
+.container-left {
+  width: 50%;
+}
+.banner-img {
+  width: 50%;
+}

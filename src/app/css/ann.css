@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 2rem;
+}
+h3 {
+  font-weight: 400 !important;
+}
+.top_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post_content {
+  font-size: 1.5rem;
+}
+
+.links_container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.attachment-header {
+  font-size: 1.75rem;
+}
+
+.link {
+  background-color: var(--accent-color);
+  padding: 0.5em 2em;
+  color: var(--light-text-color);
+  font-size: 1.25rem;
+  border-radius: 10px;
+}
+
+#done_btn {
+  width: max-content;
+  background-color: var(--accent-color);
+  padding: 0.5em;
+  color: var(--light-text-color);
+  font-size: 1rem;
+  font-family: var(--primary-text-font);
+}
+
+.report_link {
+  width: max-content;
+  background-color: var(--accent-color);
+  padding: 0.5em;
+  color: var(--light-text-color);
+  font-size: 1rem;
+  font-family: var(--primary-text-font);
+}

@@ -1,0 +1,25 @@
+{
+  "name": "announcify-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "amazinglySK",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.2",
+    "json2csv": "^5.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.7",
+    "nanoid": "^3.2.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "dotenv": "^14.2.0"
+  }
+}

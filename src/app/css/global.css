@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Ubuntu:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-color: #ff4155;
+  --primary-text-color: #12130f;
+  --light-text-color: #f1f1f1;
+  --fill-color: #fffded;
+  --primary-text-font: "Roboto Condensed", sans-serif;
+  --accent-text-font: "Ubuntu", sans-serif;
+}
+
+.navbar {
+  font-family: var(--accent-text-font);
+  margin: 1em auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80%;
+  color: var(--accent-color);
+}
+.logo {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+#logo_img {
+  width: 5em;
+}
+.menu-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  font-family: var(--primary-text-font);
+}
+
+.special-text {
+  color: var(--accent-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.25rem;
+}

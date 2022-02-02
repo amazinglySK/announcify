@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/signup.css" />
+    <title>📣 Signup</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <h1>Announcify</h1>
+        <img src="public/logo.svg" alt="" id="logo_img" />
+      </div>
+      <div class="menu-items">
+        <a href="/signup">Signup</a>
+        <a href="/login">Login</a>
+        <a href="/about">About Us</a>
+      </div>
+    </header>
+    <main>
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="name">
+            Your Name <span class="special-text">*</span></label
+          >
+          <input type="text" id="name" class="login-input" required />
+        </div>
+        <div class="form-group">
+          <label for="user_name"
+            >Username<span class="special-text">*</span></label
+          >
+          <input type="text" id="user_name" class="login-input" required />
+        </div>
+        <div class="form-group">
+          <label for="s_no"
+            >Enter your ES No.<span class="special-text">*</span></label
+          >
+          <input type="text" id="s_no" class="login-input" required />
+        </div>
+        <div class="form-group">
+          <label for="email"
+            >Enter your school email<span class="special-text">*</span></label
+          >
+          <input type="text" id="email" class="login-input" required />
+        </div>
+        <div class="form-group">
+          <label for="password"
+            >Password<span class="special-text">*</span></label
+          >
+          <input type="password" id="password" class="login-input" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm_password"
+            >Confirm Password<span class="special-text">*</span></label
+          >
+          <input
+            type="password"
+            id="confirm_password"
+            class="login-input"
+            required
+          />
+        </div>
+        <button id="submit_btn">Submit</button>
+      </form>
+    </main>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/signup.js"></script>
+</html>

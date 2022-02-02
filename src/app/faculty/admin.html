@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>📣 Admin</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <img src="" alt="" id="logo_img" />
+        <h1>Announcify</h1>
+      </div>
+      <div class="menu-items">
+        <a href="/login">Login</a>
+        <a href="/about">About Us</a>
+      </div>
+    </header>
+    <main>
+      <header class="navbar">
+        <div class="logo">
+          <img src="" alt="" id="logo_img" />
+          <h1>Announcify</h1>
+        </div>
+        <div class="user">
+          <h2 class="user_name"></h2>
+        </div>
+      </header>
+      <div class="container">
+        <h3>Add students</h3>
+        <p>
+          Add student credentials. Students will be sent their usernames along
+          with their passwords on their emails. It is advisable to enter school
+          email IDs
+        </p>
+        <form class="student-form">
+          <h3 id="className"></h3>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="login-input" />
+          </div>
+          <div class="form-group">
+            <label for="s_no">S. No.</label>
+            <input type="text" id="s_no" class="login-input" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="login-input" />
+          </div>
+          <div class="form-group">
+            <label for="class"> Class </label>
+            <select id="class" class="login-input"></select>
+          </div>
+          <button id="submit_btn">Submit</button>
+        </form>
+        <button id="sendMail">Send emails</button>
+        <div id="student-container"></div>
+        <div id="createClass">
+          <h3>Want to create a class ?</h3>
+          <input
+            type="text"
+            id="grade"
+            placeholder="Enter the grade. eg : 10"
+          />
+          <input
+            type="text"
+            id="section"
+            placeholder="Enter the section. eg : I"
+          />
+          <i class="fa-solid fa-circle-plus" id="add_btn"></i>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../js/newClass.js"></script>
+  <script src="../js/addStudents.js"></script>
+</html>
