@@ -37,3 +37,19 @@ h3 {
   padding: 0.5rem;
   border-radius: 8px;
 }
+
+.groupName {
+  font-size: 1.5rem;
+}
+
+.group-card {
+  background-color: var(--fill-color);
+  border: 4px var(--accent-color) solid;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.groupsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(10px, 1fr));
+}

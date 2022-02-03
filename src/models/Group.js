@@ -8,10 +8,6 @@ const GroupSchema = new mongoose.Schema({
     ref: "Teacher",
     required: true,
   },
-  moderators: {
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Teacher" }],
-    default: [],
-  },
   members: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Teacher" }],
     default: [],
@@ -20,7 +16,10 @@ const GroupSchema = new mongoose.Schema({
     type: String,
     default: nanoid(8),
   },
-  announcements: [{ type: mongoose.Schema.Types.ObjectId }],
+  announcements: {
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Announcement" }],
+    default: [],
+  },
 });
 
 module.exports = mongoose.model("Group", GroupSchema);

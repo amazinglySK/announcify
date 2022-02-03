@@ -7,6 +7,7 @@ const apiRouter = require("./apiRoutes");
 const studRouter = require("./studRoutes");
 const facultyRouter = require("./facultyRoutes");
 const annRouter = require("./annRoutes");
+const groupRouter = require("./groupRoutes");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -21,6 +22,7 @@ app.use("/api", apiRouter);
 app.use("/stud", studRouter);
 app.use("/faculty", facultyRouter);
 app.use("/ann", annRouter);
+app.use("/group", groupRouter);
 
 app.get("/:name", (req, res) => {
   const name = req.params.name;
