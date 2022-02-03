@@ -25,10 +25,6 @@ function createStudentCard(data) {
 }
 
 async function registerStudents(data) {
-  console.log(data);
-
-  console.log("Sending request");
-
   const payload = {
     students: data,
   };
@@ -52,7 +48,6 @@ async function registerStudents(data) {
 async function loadClass() {
   const response = await fetch("/api/class");
   const jsonRes = await response.json();
-  console.log(jsonRes);
   return jsonRes;
 }
 

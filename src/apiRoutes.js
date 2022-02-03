@@ -15,9 +15,7 @@ const { requireAuth } = require("./middlewares/authController");
 const maxAge = 12 * 60 * 60; // 1/2 day in seconds
 
 router.post("/signup", async (req, res) => {
-  console.log(req.body);
   const { official_name, username, password, email, school_id } = req.body;
-  console.log(username);
   let hashed_pwd = await bcrypt.hash(password, 10);
   mongoConn();
   let teacher = await Teacher.findOne({ email: email });
@@ -54,10 +52,8 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  console.log(`Username : ${username}; Password : ${password}`);
   mongoConn();
   let user = await User.findOne({ username: username });
-  console.log(user);
   if (!user) {
     res
       .status(401)
@@ -78,7 +74,6 @@ router.post("/login", async (req, res) => {
     name: user.official_name,
     role: user._type,
   });
-  console.log(user._type);
   return;
 });
 
@@ -87,7 +82,6 @@ router.get("/class", requireAuth(), async (req, res) => {
   let classId = res.locals.classId;
   mongoConn();
   try {
-    console.log(classId);
     const classDetails = await Class.findOne({ _id: classId });
     if (!classDetails) {
       console.log("Something went wrong while finding classes");
@@ -103,9 +97,7 @@ router.get("/class", requireAuth(), async (req, res) => {
 router.post("/class", requireAuth("Teacher"), (req, res) => {
   const token = req.cookies.token;
   const teacher_id = decodeToken(token, "id");
-  console.log(teacher_id);
   const data = req.body;
-  console.log(data);
   mongoConn();
 
   let newClass = new Class({
@@ -153,7 +145,6 @@ router.post("/students", requireAuth("Teacher"), async (req, res) => {
   mongoConn();
   for (i = 0; i <= student_details.length - 1; i++) {
     let student = student_details[i];
-    console.log(student);
     const existingStudent = await Student.findOne({
       username: student.username,
       school_id: student.school_id,
@@ -173,7 +164,6 @@ router.post("/students", requireAuth("Teacher"), async (req, res) => {
         console.log(err);
         return;
       }
-      console.log("Saving the user");
     });
 
     const mailSuccess = await sendMail();

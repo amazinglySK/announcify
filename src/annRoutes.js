@@ -123,7 +123,6 @@ router.get("/:id/report", requireAuth("Teacher"), async (req, res) => {
         Time: date.toLocaleString("en-GB"),
       });
     }
-    console.log(ann_completions);
     const csvFields = ["Name", "Time"];
     const parser = new CsvParser({ csvFields });
     const csvResponse = parser.parse(ann_completions);
@@ -132,7 +131,6 @@ router.get("/:id/report", requireAuth("Teacher"), async (req, res) => {
       "Content-Disposition",
       "attachment; filename=Announcement-Report.csv"
     );
-    console.log(csvResponse);
     res.status(200).end(csvResponse);
   } catch (err) {
     console.log(err);
@@ -144,7 +142,6 @@ router.post("/new", requireAuth("Teacher"), async (req, res) => {
   mongoConn();
   const data = req.body;
   const class_id = res.locals.classId;
-  console.log(`classId in /new ${class_id}`);
   try {
     const existingClass = await Class.findOne({ _id: class_id });
     if (!existingClass) {
