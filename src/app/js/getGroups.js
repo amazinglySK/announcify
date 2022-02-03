@@ -13,8 +13,13 @@ $(document).ready(() => {
         let class_title = document.createElement("h3");
         let class_img = document.createElement("img");
         $(class_title).attr({ class: "groupName" }).text(group.name);
-        $(class_img).attr({ class: "group_img" });
-        $(class_card).attr({ class: "group-card" }).append($(class_title));
+        $(class_img).attr({
+          class: "group_img",
+          src: "http://localhost:3000/public/group_img.png",
+        });
+        $(class_card)
+          .attr({ class: "group-card" })
+          .append($(class_img), $(class_title));
         $(".groupsContainer").append($(class_card));
       }
     })
