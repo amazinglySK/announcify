@@ -33,7 +33,7 @@ $(document).ready((e) => {
       title: $("#title").val(),
       description: $("#description").val(),
       content: $("#content").val(),
-      completed_students: [],
+      completed: [],
       links: links,
     };
     createAnnouncement(data)

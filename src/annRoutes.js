@@ -29,7 +29,7 @@ router.get("/", requireAuth(), async (req, res) => {
       let announcementObj = await Announcement.findOne({
         _id: announcements[i],
       });
-      if (announcementObj.completed_students.includes(userId)) {
+      if (announcementObj.completed.includes(userId)) {
         continue;
       }
       const { title, description, dueDate, uid } = announcementObj;
@@ -85,8 +85,8 @@ router.put("/:id/submit", requireAuth("Student"), async (req, res) => {
       res.status(400).json({ message: "No class found" });
       return;
     }
-    if (!existingAnn.completed_students.includes(userId)) {
-      existingAnn.completed_students.push({
+    if (!existingAnn.completed.includes(userId)) {
+      existingAnn.completed.push({
         student_id: userId,
         time: Date.now(),
       });
@@ -112,7 +112,7 @@ router.get("/:id/report", requireAuth("Teacher"), async (req, res) => {
     }
 
     let ann_completions = [];
-    for (const e of ann.completed_students) {
+    for (const e of ann.completed) {
       let stud = await Student.findOne({ _id: e.student_id });
       let date = new Date(e.time);
       if (!stud) {
