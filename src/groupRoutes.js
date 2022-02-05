@@ -1,4 +1,5 @@
 const express = require("express");
+const { nanoid } = require("nanoid");
 const { mongoConn } = require("./lib/dbConn");
 const router = express.Router();
 const { requireAuth } = require("./middlewares/authController");
@@ -61,6 +62,7 @@ router.post("/new", async (req, res) => {
     let groupData = req.body;
     let teacher_id = res.locals.userId;
     groupData.admin = teacher_id;
+    groupData.group_id = nanoid(8);
     let newGroup = new Group(groupData);
     const GroupObj = await newGroup.save();
     let existingFaculty = await Teacher.findOne({ _id: teacher_id });
@@ -84,6 +86,7 @@ router.post("/:gid/new", async (req, res) => {
       res.status(400).json({ message: "No class Id found" });
       return;
     }
+    data.uid = nanoid(8);
     const newAnn = new Announcement(data);
     const AnnData = await newAnn.save();
     existingGroup.announcements.push(AnnData._id);

@@ -2,6 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const router = express.Router();
 const { requireAuth } = require("./middlewares/authController");
+const { nanoid } = require("nanoid");
 const Announcement = require("./models/Announcement");
 const Class = require("./models/Class");
 const Student = require("./models/Student");
@@ -22,12 +23,12 @@ router.get("/", requireAuth(), async (req, res) => {
     }
     const { announcements } = ExistingClass;
     let announcementList = [];
-    for (i = 0; i <= announcements.length - 1; i++) {
+    for (const i of announcements) {
       if (announcementList.length == 10) {
         break;
       }
       let announcementObj = await Announcement.findOne({
-        _id: announcements[i],
+        _id: i,
       });
       if (announcementObj.completed.includes(userId)) {
         continue;
@@ -149,6 +150,7 @@ router.post("/new", requireAuth("Teacher"), async (req, res) => {
       res.status(400).json({ message: "No class Id found" });
       return;
     }
+    data.uid = nanoid(8);
     const newAnn = new Announcement(data);
     const AnnData = await newAnn.save();
     existingClass.announcements.push(AnnData._id);

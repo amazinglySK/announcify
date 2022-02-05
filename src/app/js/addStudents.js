@@ -82,7 +82,7 @@ $(document).ready((e) => {
     $("#student-container").empty();
     registerStudents(studentsToRegister).then((res) => {
       if (res[0] == "OK") {
-        console.log("Students added");
+        alert("Students added successfully");
       }
 
       for (const student in res[1]) {

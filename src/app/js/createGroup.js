@@ -20,6 +20,7 @@ $(document).ready(() => {
     createGroup(group_name)
       .then((res) => {
         console.log(res);
+        alert(res.message);
       })
       .catch((err) => {
         console.log(err);

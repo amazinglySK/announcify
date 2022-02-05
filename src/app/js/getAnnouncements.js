@@ -12,6 +12,7 @@ function createAnnCard(Ann) {
       class: "ann-card",
     })
     .append($(titleText), $(descriptionText), $(dateText));
+  console.log(Ann.uid);
   $(link)
     .attr({
       href: `/ann/${Ann.uid}`,

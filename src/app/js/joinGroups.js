@@ -1,5 +1,5 @@
 const joinGroup = async (code) => {
-  const response = fetch(`/group/${code}/add`, {
+  const response = await fetch(`/group/${code}/add`, {
     method: "POST",
     headers: { "Conent-Type": "application/json" },
   });

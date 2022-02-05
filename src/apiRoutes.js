@@ -1,15 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const { createToken, decodeToken } = require("./lib/tokenFunctions");
+const { createToken } = require("./lib/tokenFunctions");
 const { mongoConn } = require("./lib/dbConn");
-const { createPassword } = require("./lib/createPassword");
 const { sendMail } = require("./lib/sendMail");
 const Teacher = require("./models/Teacher");
 const Student = require("./models/Student");
 const User = require("./models/User");
 const Class = require("./models/Class");
-const Announcement = require("./models/Announcement");
 const { requireAuth } = require("./middlewares/authController");
 
 const maxAge = 12 * 60 * 60; // 1/2 day in seconds
@@ -77,8 +75,8 @@ router.post("/login", async (req, res) => {
   return;
 });
 
-router.get("/class", requireAuth(), async (req, res) => {
-  let classId = res.locals.classId;
+router.get("/class", requireAuth("Teacher"), async (req, res) => {
+  const { classId } = res.locals;
   mongoConn();
   try {
     const classDetails = await Class.findOne({ _id: classId });
@@ -94,8 +92,7 @@ router.get("/class", requireAuth(), async (req, res) => {
 });
 
 router.post("/class", requireAuth("Teacher"), (req, res) => {
-  const token = req.cookies.token;
-  const teacher_id = decodeToken(token, "id");
+  const teacher_id = res.locals.userId;
   const data = req.body;
   mongoConn();
 
@@ -126,11 +123,7 @@ router.post("/class", requireAuth("Teacher"), (req, res) => {
       }
       doc.class = class_details._id;
       doc.save();
-      res.status(200).json({
-        message: "Class registered successfully",
-        class_name: class_details.class_name,
-        class_id: class_details._id,
-      });
+      res.status(200).redirect("/login");
     });
   });
 });
