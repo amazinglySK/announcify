@@ -39,6 +39,8 @@ h3 {
   background-color: var(--accent-color);
   padding: 0.5em;
   color: var(--light-text-color);
+  border: none;
+  border-radius: 8px;
   font-size: 1rem;
   font-family: var(--primary-text-font);
 }
@@ -50,4 +52,5 @@ h3 {
   color: var(--light-text-color);
   font-size: 1rem;
   font-family: var(--primary-text-font);
+  border-radius: 8px;
 }

@@ -78,7 +78,6 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/class", requireAuth(), async (req, res) => {
-  let cookies = req.cookies;
   let classId = res.locals.classId;
   mongoConn();
   try {

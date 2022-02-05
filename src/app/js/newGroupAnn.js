@@ -1,6 +1,9 @@
 const createAnnouncement = async (data) => {
   try {
-    const response = await fetch("/ann/new", {
+    const group_id = window.location.href.endsWith("/")
+      ? window.location.href.split("/").slice(-3)[0]
+      : window.location.href.split("/").slice(-2)[0];
+    const response = await fetch(`/group/${group_id}/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

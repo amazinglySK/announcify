@@ -24,40 +24,62 @@
     </header>
     <main>
       <div class="container">
-        <h3>Students Registration</h3>
-        <h3 id="className"></h3>
-        <form class="student-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" class="login-input" />
-          </div>
-          <div class="form-group">
-            <label for="s_no">S. No.</label>
-            <input type="text" id="s_no" class="login-input" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" id="email" class="login-input" />
-          </div>
-        </form>
-        <button id="submit_btn">Submit</button>
-        <button id="sendMail">Send emails</button>
-        <div id="student-container"></div>
-        <div id="createClass">
+        <div class="small-input" id="createClass">
           <h3>Want to create a class ?</h3>
           <div class="input-container">
             <input
               type="text"
               id="grade"
               placeholder="Enter the grade. eg : 10"
+              required
             />
             <input
               type="text"
               id="section"
               placeholder="Enter the section. eg : I"
+              required
             />
             <i class="fa-solid fa-circle-plus" id="add_btn"></i>
           </div>
+        </div>
+        <h3>Students Registration</h3>
+        <h3 id="className"></h3>
+        <form class="student-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="login-input" required />
+          </div>
+          <div class="form-group">
+            <label for="s_no">S. No.</label>
+            <input type="text" id="s_no" class="login-input" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="login-input" required />
+          </div>
+        </form>
+        <button id="submit_btn">Submit</button>
+        <button id="sendMail">Send emails</button>
+        <div id="student-container"></div>
+        <div class="small-input">
+          <h3>Create a group ?</h3>
+          <input
+            type="text"
+            id="group_name"
+            placeholder="Enter group name"
+            required
+          />
+          <i class="fa-solid fa-circle-plus" id="create_btn"></i>
+        </div>
+        <div class="small-input">
+          <h3>Join a group ?</h3>
+          <input
+            type="text"
+            id="group_code"
+            placeholder="Enter the code"
+            required
+          />
+          <i class="fa-solid fa-arrow-right-to-bracket" id="join_btn"></i>
         </div>
       </div>
     </main>
@@ -65,4 +87,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../js/newClass.js"></script>
   <script src="../js/addStudents.js"></script>
+  <script src="../js/joinGroups.js"></script>
+  <script src="../js/createGroup.js"></script>
 </html>

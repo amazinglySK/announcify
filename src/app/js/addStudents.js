@@ -55,7 +55,10 @@ $(document).ready((e) => {
   let studentsToRegister = [];
   loadClass().then((res) => {
     let className = res.class;
-    $("#className").text(className);
+    if (className !== undefined) {
+      $("#createClass").fadeOut("slow");
+      $("#className").text(className);
+    }
   });
   // Create a div card with name, class and s.no.
   // Create a button with send mails option

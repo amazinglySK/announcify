@@ -12,7 +12,7 @@ h3 {
 .ann-card {
   background-color: var(--fill-color);
   padding: 0.5em 1em;
-  border: 5px var(--accent-color) solid;
+  border: 4px var(--accent-color) solid;
   border-radius: 10px;
 }
 
@@ -27,7 +27,10 @@ h3 {
 }
 
 .recentsContainer {
-  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 2em 0;
 }
 
 .button-type {
@@ -36,4 +39,32 @@ h3 {
   background-color: var(--accent-color);
   padding: 0.5rem;
   border-radius: 8px;
+}
+
+.groupName {
+  font-size: 2rem;
+  font-family: var(--accent-text-font);
+  font-weight: 700;
+}
+
+.group-card {
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fill-color);
+  border: 4px var(--accent-color) solid;
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+}
+
+.group-card > img {
+  width: 145px;
+}
+
+.groupsContainer {
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 }

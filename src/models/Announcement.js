@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 const { isURL } = require("validator");
 const { nanoid } = require("nanoid");
 
-const announcementSchema = mongoose.Schema({
-  class: { type: mongoose.Schema.Types.ObjectId, ref: "Class" },
+const announcementSchema = new mongoose.Schema({
   author: { type: mongoose.Schema.Types.ObjectId, ref: "Teachers" },
   dateOfPost: { type: Date, default: Date.now },
   dueDate: { type: Date, require: false },
-  completed_students: {
+  completed: {
     type: [
       {
         student_id: { type: mongoose.Schema.Types.ObjectId, ref: "Students" },
