@@ -6,13 +6,13 @@ const loginUser = async (data) => {
     },
     body: JSON.stringify(data),
   });
+  const jsonRes = await response.json();
   console.log("Sending the request");
   if (!response.ok) {
     console.error("The route did not respond");
     return;
   }
-  console.log("Success.. User signed up");
-  return "OK";
+  return jsonRes;
 };
 
 $(document).ready(() => {
@@ -25,8 +25,9 @@ $(document).ready(() => {
     };
     loginUser(data).then((res) => {
       console.log(res);
-      if (res == "OK") {
+      if (res.redirect_url) {
         alert("You are logged in");
+        window.location.href = res.redirect_url;
       }
     });
   });

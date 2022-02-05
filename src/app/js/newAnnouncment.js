@@ -38,8 +38,10 @@ $(document).ready((e) => {
     };
     createAnnouncement(data)
       .then((res) => {
-        console.log(res);
-        alert("Announcement added successfully");
+        if (res.redirect_url) {
+          alert("Announcement added successfully");
+          window.location.href = res.redirect_url;
+        }
       })
       .catch((err) => {
         console.log(err);

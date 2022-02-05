@@ -156,10 +156,12 @@ router.post("/new", requireAuth("Teacher"), async (req, res) => {
     existingClass.announcements.push(AnnData._id);
     await existingClass.save();
     console.log("All done.");
-    res.status(200).json({
-      message: "Announcement added successfully",
-      post_id: AnnData.uid,
-    });
+    res
+      .status(200)
+      .json({
+        message: "Announcement Saved successfully",
+        redirect_url: "/faculty/",
+      });
   } catch (err) {
     console.log(`Err : ${err}`);
     res.status(500).json({

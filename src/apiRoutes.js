@@ -39,11 +39,9 @@ router.post("/signup", async (req, res) => {
         console.log(`Err : ${err}`);
         return;
       }
-      res.status(200).json({
-        message: "User registered successfully",
-        user_name: user.username,
-        email: user.email,
-      });
+      res
+        .status(200)
+        .json({ message: "Signed up successfully", redirect_url: "/login" });
     });
   }
 });
@@ -67,11 +65,12 @@ router.post("/login", async (req, res) => {
   });
 
   let token = createToken(user._id, user._type, user.class);
-  res.cookie("token", token, { httpOnly: true, maxAge: maxAge * 1000 }).json({
-    message: "login success",
-    name: user.official_name,
-    role: user._type,
-  });
+  let redirect_url = user._type == "Teacher" ? "/faculty/" : "/stud";
+  console.log(redirect_url);
+  res
+    .cookie("token", token, { httpOnly: true, maxAge: maxAge * 1000 })
+    .json({ message: "Login successful", redirect_url });
+
   return;
 });
 
@@ -123,7 +122,10 @@ router.post("/class", requireAuth("Teacher"), (req, res) => {
       }
       doc.class = class_details._id;
       doc.save();
-      res.status(200).redirect("/login");
+      res.status(200).json({
+        message: "Successfully added class",
+        redirect_url: "/faculty/",
+      });
     });
   });
 });

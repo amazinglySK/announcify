@@ -60,10 +60,6 @@ $(document).ready((e) => {
       $("#className").text(className);
     }
   });
-  // Create a div card with name, class and s.no.
-  // Create a button with send mails option
-  // Post the API request
-  // Add a "-" button to remove the accidental entry
   $("#submit_btn").on("click", (e) => {
     e.preventDefault();
     let data = {

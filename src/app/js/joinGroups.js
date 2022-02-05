@@ -14,6 +14,7 @@ $(document).ready(() => {
     joinGroup(group_code)
       .then((res) => {
         alert(res.message);
+        window.location.href = res.redirect_url;
       })
       .catch((err) => {
         console.log(err);

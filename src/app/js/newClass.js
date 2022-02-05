@@ -7,6 +7,8 @@ const createClass = async (data) => {
     body: JSON.stringify(data),
   });
 
+  const jsonRes = await res.json();
+
   console.log("Sending the request");
 
   if (!res.ok) {
@@ -16,7 +18,7 @@ const createClass = async (data) => {
 
   console.log("Class Added");
 
-  return "OK";
+  return jsonRes;
 };
 
 $(document).ready((e) => {
@@ -32,8 +34,9 @@ $(document).ready((e) => {
     };
 
     createClass(data).then((res) => {
-      if (res === "OK") {
+      if (res.redirect_url) {
         alert("Successfully created the class");
+        window.location.href = res.redirect_url;
         return;
       }
       alert("Oops.. something went wrong");

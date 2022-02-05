@@ -68,7 +68,7 @@ router.post("/new", async (req, res) => {
     let existingFaculty = await Teacher.findOne({ _id: teacher_id });
     existingFaculty.groups.push(GroupObj._id);
     await existingFaculty.save();
-    res.status(200).json({ message: "Successfully created the group !!" });
+    res.status(200).redirect("/faculty/");
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Oops something went wrong" });
@@ -92,10 +92,7 @@ router.post("/:gid/new", async (req, res) => {
     existingGroup.announcements.push(AnnData._id);
     await existingGroup.save();
     console.log("All done.");
-    res.status(200).json({
-      message: "Announcement added successfully",
-      post_id: AnnData.uid,
-    });
+    res.status(200).redirect("/faculty/");
   } catch (err) {
     console.log(`Err : ${err}`);
     res.status(500).json({
@@ -120,7 +117,9 @@ router.post("/:gid/add", async (req, res) => {
     await existingTeacher.save();
     await existingGroup.save();
 
-    res.status(200).json({ message: "You are added !" });
+    res
+      .status(200)
+      .json({ message: "Added you successfully", redirect_url: "/faculty/" });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Something went wrong" });
