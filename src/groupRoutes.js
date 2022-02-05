@@ -42,7 +42,9 @@ router.get("/:gid", async (req, res) => {
       let announcement = await Announcement.findOne({ _id: i });
       announcementList.push(announcement);
     }
-    res.status(200).json({ announcements: announcementList });
+    res
+      .status(200)
+      .json({ announcements: announcementList, group_name: group.name });
     return;
   } catch (err) {
     console.log(err);
@@ -76,7 +78,7 @@ router.post("/:gid/new", async (req, res) => {
   const data = req.body;
   const group_id = req.params.gid;
   try {
-    const existingGroup = await Group.findOne({ _id: group_id });
+    const existingGroup = await Group.findOne({ group_id: group_id });
     if (!existingGroup) {
       console.log("No existing class found");
       res.status(400).json({ message: "No class Id found" });
