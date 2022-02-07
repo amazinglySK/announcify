@@ -7,6 +7,8 @@ const createGroup = async (name) => {
       body: JSON.stringify(data),
     });
     const jsonRes = await response.json();
+    console.log(response);
+    console.log(jsonRes);
     return jsonRes;
   } catch (err) {
     throw err;
@@ -91,15 +93,17 @@ async function registerStudents(data) {
   return ["OK", jsonRes.failed];
 }
 
-async function loadClass() {
+const loadClass = async () => {
   const response = await fetch("/api/class");
   const jsonRes = await response.json();
   return jsonRes;
-}
+};
 
 $(document).ready((e) => {
   let studentsToRegister = [];
   loadClass().then((res) => {
+    console.log("Sent request");
+    console.log(res);
     let className = res.class;
     if (className !== undefined) {
       $("#createClass").fadeOut("slow");
@@ -113,6 +117,7 @@ $(document).ready((e) => {
       .then((res) => {
         console.log(res);
         alert(res.message);
+        window.location.href = res.redirect_url;
       })
       .catch((err) => {
         console.log(err);
